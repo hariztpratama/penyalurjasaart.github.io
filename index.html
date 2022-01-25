@@ -228,9 +228,9 @@
           </div>
 
           <div class="col m7 s12">
-            <form>
+            <form name="art-mandiri">
               <div class="card-panel">
-                <h5>Mohon isi pada form ini</h5>
+                <h5>Jika ingin menggunakan jasa kami bisa isi di form di bawah ini</h5>
                 <div class="input-field">
                   <input type="text" name="name" id="name" required class="validate">
                   <label for="name">Nama</label>
@@ -247,7 +247,9 @@
                   <textarea name="message" id="message" class="materialize-textarea"></textarea>
                   <label for="message">Message</label>
                 </div>
-                <button type="submit" class="btn button blue darken-2">Send</button>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                  <i class="material-icons right">send</i>
+                </button>
               </div>
             </form>
           </div>
@@ -285,6 +287,17 @@
         scrollOfset: 50
       });
 
+    </script>
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxB36_SiG07EQYB58WzzEl20P2Fo73Hx9p1uc_GiO_bgn3QpKc70IbPB1KPSDFfy6fw/exec'
+      const form = document.forms['art-mandiri']
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => console.log('Success!', response))
+          .catch(error => console.error('Error!', error.message))
+      })
     </script>
   </body>
 </html>
