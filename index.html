@@ -216,7 +216,7 @@
             <div class="card-panel blue darken-2 center white-text">
               <i class="material-icons">room</i>
               <h5>Our Office</h5>
-              <a href="Jalan Bhayangkara, Cipocok Jaya, Sumurpecung, Kec. Serang, Kota Serang, Banten 42118, Indonesia" class="light white-text text-darken-3 center">Jalan Bhayangkara, Cipocok Jaya, Sumurpecung, Kec. Serang, Kota Serang, Banten 42118, Indonesia</a>
+              <a href="Jalan Bhayangkara, Cipocok Jaya, Sumurpecung, Kec. Serang, Kota Serang, Banten 42118, Indonesia" class="light white-text text-darken-3 center">Jalan Bhayangkara RT.02/RW.022, Cipocok Jaya, Sumurpecung, Kec. Serang, Kota Serang, Banten 42118, Indonesia</a>
             </div>
            <ul class="collection with-header">
              <li class="collection-item"><i class="material-icons">email</i> isahrohisah889@gmail.com</li>
@@ -228,7 +228,7 @@
           </div>
 
           <div class="col m7 s12">
-            <form name="art-mandiri">
+            <form name="coba1">
               <div class="card-panel">
                 <h5>Jika ingin menggunakan jasa kami bisa isi di form di bawah ini</h5>
                 <div class="input-field">
@@ -247,9 +247,25 @@
                   <textarea name="message" id="message" class="materialize-textarea"></textarea>
                   <label for="message">Message</label>
                 </div>
-                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                  <i class="material-icons right">send</i>
+                <!-- button notif -->
+                <button type="submit" class="waves-effect waves-light btn modal-trigger" href="#modal-notif" name="action">Send
                 </button>
+                <!-- end button notif -->
+
+                <!-- modal notif -->
+                <div class="modal bottom-sheet" id="modal-notif">
+                  <div class="modal-content">
+                    <h4>Pemberitahuan</h4>
+                    <p>Data telah masuk pada sistem kami, Silahkan close kemudian refresh</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button id="closeNotif" class="btn material-icons">
+                      <i class="material-icons">close</i>
+                    </button>
+                  </div>
+                </div>
+                <!-- end modal notif -->
+
               </div>
             </form>
           </div>
@@ -286,18 +302,17 @@
       M.ScrollSpy.init(scroll, {
         scrollOfset: 50
       });
-
     </script>
     <script>
       const scriptURL = 'https://script.google.com/macros/s/AKfycbxB36_SiG07EQYB58WzzEl20P2Fo73Hx9p1uc_GiO_bgn3QpKc70IbPB1KPSDFfy6fw/exec'
-      const form = document.forms['art-mandiri']
-    
-      form.addEventListener('submit', e => {
-        e.preventDefault()
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-          .then(response => console.log('Success!', response))
-          .catch(error => console.error('Error!', error.message))
-      })
-    </script>
+      const form = document.forms['coba1']  
+          form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+              .then(response => console.log('Success!', response))
+              .catch(error => console.error('Error!', error.message))
+          })
+      </script>
+      <script src="js/modal.notif.js"></script>
   </body>
 </html>
