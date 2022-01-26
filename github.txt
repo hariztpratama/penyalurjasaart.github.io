@@ -1,0 +1,22 @@
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxB36_SiG07EQYB58WzzEl20P2Fo73Hx9p1uc_GiO_bgn3QpKc70IbPB1KPSDFfy6fw/exec'
+      const form = document.forms['art-mandiri']
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => console.log('Success!', response))
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
+
+=============
+ class="btn blue darken-2"
+089623981477
+
+===========================================================
+git add .
+git commit -m "apa yg diperbarui"
+git push -u origin
+===========================================================
+
